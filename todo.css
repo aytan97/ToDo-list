@@ -1,0 +1,10 @@
+body{
+    margin: 0px auto; 
+    box-sizing: border-box;
+    height: 100%;
+}
+
+.todo-block{
+width: 85%;
+height: 85%;
+}
