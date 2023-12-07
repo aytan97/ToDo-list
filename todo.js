@@ -1,5 +1,6 @@
 const tasks = document.querySelector('.tasksBlock');
 const inputValues = []
+const addinput=document.querySelector(".add-task-value")
 
 // Add New Task
 function addNewTask(element) {
@@ -8,8 +9,9 @@ function addNewTask(element) {
   // console.log(element);
   // Bir önceki elementi seç
   for (let inputValue of inputValues) {
+  
     taskView += `
-    <div class="input-group mb-3">
+    <div class="input-group mb-3 w-75 ">
         <div class="input-group-text">
             <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input" onclick="doneTask(this)">
         </div>
@@ -19,16 +21,20 @@ function addNewTask(element) {
     </div>
     `
     tasks.innerHTML = taskView;
+    addinput.value='';
   }
+ 
 }
 
 const addBtn = document.getElementById('addBtn');
 addBtn.addEventListener('click', function () {
-  addNewTask(this);
+  if(addinput.value!==""){
+  addNewTask(this);}
+
 });
 
 document.addEventListener('keydown', function (event) {
-  if (event.key === 'Enter') {
+  if (event.key === 'Enter' && addinput.value!=="") {
     event.preventDefault();
     addNewTask(addBtn); // Call your function when Enter is pressed
   }
